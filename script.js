@@ -43,7 +43,6 @@ let state = {
 // Elementos DOM
 const orbContainer = document.querySelector('.orb-container');
 const statusText = document.getElementById('status-text');
-const stopBtn = document.getElementById('stop-btn');
 const soundWaves = document.querySelector('.sound-waves');
 const responseAudio = document.getElementById('response-audio');
 const subtitle = document.getElementById('subtitle');
@@ -323,15 +322,13 @@ function updateUI(newState) {
     orbContainer.classList.remove('listening', 'processing', 'speaking');
     soundWaves.classList.remove('active');
     statusText.className = '';
-    stopBtn.classList.add('hidden');
     
     switch(newState) {
         case 'listening':
             orbContainer.classList.add('listening');
             soundWaves.classList.add('active');
-            statusText.textContent = 'Ouvindo... Fale sua pergunta';
+            statusText.textContent = 'Ouvindo... Toque novamente para parar';
             statusText.classList.add('listening');
-            stopBtn.classList.remove('hidden');
             break;
             
         case 'processing':
@@ -373,17 +370,16 @@ function resetState() {
 // EVENT LISTENERS
 // ==========================================
 
-// Clique na esfera
+// Clique na esfera (toggle: começa ou para)
 orbContainer.addEventListener('click', () => {
-    if (!state.isRecording && !state.isProcessing && !state.isSpeaking) {
+    if (state.isRecording) {
+        // Se está gravando, para
+        stopRecording();
+    } else if (!state.isProcessing && !state.isSpeaking) {
+        // Se não está fazendo nada, começa a gravar
         startRecording();
     }
-});
-
-// Botão de parar gravação
-stopBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    stopRecording();
+    // Se está processando ou falando, ignora o clique
 });
 
 // Atalho de teclado (Espaço)

@@ -348,32 +348,6 @@ body {
     font-weight: 400;
 }
 
-/* Botão de parar */
-.stop-btn {
-    padding: 12px 32px;
-    font-size: 1rem;
-    background: rgba(239, 68, 68, 0.2);
-    border: 2px solid rgba(239, 68, 68, 0.5);
-    color: #fca5a5;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-}
-
-.stop-btn:hover {
-    background: rgba(239, 68, 68, 0.4);
-    border-color: rgba(239, 68, 68, 0.8);
-    color: #fff;
-    transform: scale(1.05);
-}
-
-.stop-btn:active {
-    transform: scale(0.98);
-}
-
 .hidden {
     display: none !important;
 }
