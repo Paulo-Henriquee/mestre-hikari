@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mestre Hikari - Sabedoria do Aikidô</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Fundo de partículas -->
+        <canvas id="particles"></canvas>
+        
+        <!-- Conteúdo principal -->
+        <div class="content">
+            <h1 class="title">Mestre Hikari</h1>
+            <p class="subtitle" id="subtitle">Toque a esfera e fale sua pergunta</p>
+            
+            <!-- Esfera de cristal -->
+            <div class="orb-container">
+                <div class="orb-glow"></div>
+                <div class="orb">
+                    <div class="orb-inner">
+                        <div class="orb-core"></div>
+                    </div>
+                    <div class="energy-ring ring-1"></div>
+                    <div class="energy-ring ring-2"></div>
+                    <div class="energy-ring ring-3"></div>
+                </div>
+                
+                <!-- Ondas sonoras quando estiver ouvindo -->
+                <div class="sound-waves">
+                    <div class="wave wave-1"></div>
+                    <div class="wave wave-2"></div>
+                    <div class="wave wave-3"></div>
+                </div>
+            </div>
+            
+            <!-- Status -->
+            <div class="status">
+                <p id="status-text">Aguardando...</p>
+            </div>
+            
+            <!-- Botão de controle (oculto até primeira interação) -->
+            <button id="stop-btn" class="stop-btn hidden">Parar Gravação</button>
+        </div>
+    </div>
+    
+    <!-- Audio para reproduzir resposta -->
+    <audio id="response-audio" style="display: none;"></audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
